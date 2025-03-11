@@ -1,4 +1,4 @@
-# CapyVibes - Physics-Based Character Controller
+# CapyVibing - Physics-Based Character Controller
 
 A simple 3D environment featuring a physics-based character controller using Three.js and Rapier.
 
@@ -19,8 +19,8 @@ A simple 3D environment featuring a physics-based character controller using Thr
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/capyvibes.git
-cd capyvibes
+git clone https://github.com/yourusername/capy-vibing.git
+cd capy-vibing
 ```
 
 2. Install dependencies
