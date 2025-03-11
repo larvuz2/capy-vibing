@@ -1,20 +1,14 @@
-import RAPIER from '@dimforge/rapier3d/rapier_wasm3d_bg.js';
+import * as THREE from 'three';
 import { SceneSetup } from './SceneSetup.js';
 import { PhysicsWorld } from './PhysicsWorld.js';
 import { Player } from './Player.js';
 
-// We need to import the WASM file directly
-import init from '@dimforge/rapier3d/rapier_wasm3d.js';
-
-async function initPhysics() {
-    // Initialize Rapier with the WASM module
-    await init();
-    return RAPIER;
-}
+// Import Rapier with the correct module structure
+import * as RAPIER from '@dimforge/rapier3d';
 
 async function initApp() {
     // Initialize Rapier physics
-    const RAPIER = await initPhysics();
+    await RAPIER.init();
     
     const sceneSetup = new SceneSetup();
     const physicsWorld = new PhysicsWorld(RAPIER);
