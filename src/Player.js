@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import * as RAPIER from '@dimforge/rapier3d';
 
 export class Player {
-    constructor(scene, physicsWorld) {
+    constructor(scene, physicsWorld, RAPIER) {
         this.scene = scene;
         this.world = physicsWorld;
+        this.RAPIER = RAPIER;
         this.moveSpeed = 5;
         this.jumpForce = 5;
         this.setupPlayer();
@@ -20,11 +20,11 @@ export class Player {
         this.scene.add(this.mesh);
 
         // Physics body
-        const bodyDesc = RAPIER.RigidBodyDesc.dynamic()
+        const bodyDesc = this.RAPIER.RigidBodyDesc.dynamic()
             .setTranslation(0, 1, 0);
         this.body = this.world.createRigidBody(bodyDesc);
         
-        const colliderDesc = RAPIER.ColliderDesc.capsule(0.5, 0.5);
+        const colliderDesc = this.RAPIER.ColliderDesc.capsule(0.5, 0.5);
         this.world.createCollider(colliderDesc, this.body);
     }
 
